@@ -5,11 +5,13 @@ import { onError } from "@apollo/client/link/error";
 import { setContext } from '@apollo/client/link/context';
 
 // 에러 처리 링크
-const errorLink = onError(({ graphQLErrors, networkError }: any) => {
+const errorLink = onError((errorResponse) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const { graphQLErrors, networkError } = errorResponse as any;
   if (graphQLErrors)
-    graphQLErrors.forEach(({ message, locations, path }: any) =>
+    graphQLErrors.forEach((error: { message: string; locations?: unknown; path?: unknown }) =>
       console.error(
-        `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
+        `[GraphQL error]: Message: ${error.message}, Location: ${error.locations}, Path: ${error.path}`
       )
     );
   if (networkError) console.error(`[Network error]: ${networkError}`);

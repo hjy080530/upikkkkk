@@ -18,20 +18,27 @@ interface MyVotesData {
   };
 }
 
+type Vote = MyVotesData['vote']['getMyVotes'][0];
+
 const MadeVotePage = () => {
     const { data, loading, error } = useQuery<MyVotesData>(GET_MY_VOTES, {
         fetchPolicy: 'network-only',
         errorPolicy: 'ignore'
     });
 
+    console.log('MadeVotePage data:', data);
+    console.log('MadeVotePage loading:', loading);
+    console.log('MadeVotePage error:', error);
+
     if (loading) return <div>로딩 중...</div>;
+
     if (error) return <div>오류가 발생했습니다: {error.message}</div>;
 
     const myVotes = data?.vote?.getMyVotes || [];
 
     return (
         <>
-            {myVotes.map((vote) => (
+            {myVotes.map((vote: Vote) => (
                 <Question 
                     key={vote.id}
                     q={{

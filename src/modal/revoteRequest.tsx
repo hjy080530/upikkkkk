@@ -3,6 +3,7 @@
 import styled from "@emotion/styled";
 import color from "@/packages/design-system/src/color";
 import font from "@/packages/design-system/src/font";
+import Image from "next/image";
 
 interface RevoteRequestProps {
     onClose: () => void;
@@ -14,7 +15,7 @@ const revoteRequest = ({ onClose, onConfirm }: RevoteRequestProps) => {
         <Overlay onClick={onClose}>
             <ModalLayout onClick={(e) => e.stopPropagation()}>
                 <IconContainer>
-                    <img src="/svg/RequestCheck.svg" alt="완료" width={83} height={83} />
+                    <Image src="/svg/RequestCheck.svg" alt="완료" width={83} height={83} />
                 </IconContainer>
                 <Title>요청이 <Highlight>성공적</Highlight>으로 접수됐어요</Title>
                 <Description>
