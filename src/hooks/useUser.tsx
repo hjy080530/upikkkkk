@@ -100,7 +100,8 @@ export function UserProvider({ children }: { children: ReactNode }) {
       if (data?.iam?.getCurrentUser) {
         setUser(data.iam.getCurrentUser);
       }
-    } catch (err) {
+    } catch {
+      // Error handling if needed
     }
   };
 

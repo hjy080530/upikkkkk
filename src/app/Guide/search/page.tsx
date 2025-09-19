@@ -54,8 +54,8 @@ const Search = () => {
                             <ResultText>결과 <ResultNumberText>{filteredGuides.length}</ResultNumberText></ResultText>
                         </ResultSection>
                         {filteredGuides.map(guide => (
-                            <GuideCard key={guide.id} onClick={() => router.push(`/MoreGuide?guideId=${guide.id}`)}>
-                                <GuideEmoji src={guide.emoji || '📚'} alt="thumbnail" />
+                            <GuideCard key={guide.id} onClick={() => router.push(`/moreguide?guideId=${guide.id}`)}>
+                                <GuideEmoji src={ '📚'} alt="thumbnail" />
                                 <GuideTextWrap>
                                     <GuideTitle>{guide.title}</GuideTitle>
                                     <GuideMeta>

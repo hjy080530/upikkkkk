@@ -76,7 +76,7 @@ const GuideComponent = ({ gap = "10px", category = '전체', sortstandard = '가
         <SectionBody gap={gap}>
           {limitedGuides.length > 0 ? (
             limitedGuides.map((item) => (
-              <GuideCard key={item.id} onClick={() => router.push(`/MoreGuide?id=${item.id}`)}>            
+              <GuideCard key={item.id} onClick={() => router.push(`/moreguide?id=${item.id}`)}>            
                 <GuideEmoji src={getThumbnailByCategory(item.category || '기타')} alt="thumbnail" />
                 <GuideTextWrap>
                   <GuideTitle>{item.title}</GuideTitle>

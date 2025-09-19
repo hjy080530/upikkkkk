@@ -14,7 +14,7 @@ const QuestionList = ({ questions }: QuestionListProps) => {
   const router = useRouter();
 
   const handleQuestionClick = (id: string) => {
-    router.push(`/Guide/${id}`);
+    router.push(`/guide/${id}`);
   };
 
   return (
