@@ -55,7 +55,7 @@ const Search = () => {
                         </ResultSection>
                         {filteredGuides.map(guide => (
                             <GuideCard key={guide.id} onClick={() => router.push(`/MoreGuide?guideId=${guide.id}`)}>
-                                <GuideEmoji src={guide.emoji || '📚'} alt="thumbnail" />
+                                <GuideEmoji src={ '📚'} alt="thumbnail" />
                                 <GuideTextWrap>
                                     <GuideTitle>{guide.title}</GuideTitle>
                                     <GuideMeta>

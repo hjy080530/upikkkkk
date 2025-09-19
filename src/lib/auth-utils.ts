@@ -29,7 +29,7 @@ export const getAccessToken = (): string | null => {
   if (cookieToken) {
     try {
       localStorage.setItem('access-token', cookieToken);
-    } catch (error) {
+    } catch (_error) {
     }
     return cookieToken;
   }
@@ -39,7 +39,7 @@ export const getAccessToken = (): string | null => {
     if (localToken) {
       return localToken;
     }
-  } catch (error) {
+  } catch (_error) {
   }
   
   return null;
@@ -48,7 +48,7 @@ export const getAccessToken = (): string | null => {
 export const setAccessToken = (token: string): void => {
   try {
     localStorage.setItem('access-token', token);
-  } catch (error) {
+  } catch (_error) {
   }
 };
 
@@ -56,6 +56,6 @@ export const removeAccessToken = (): void => {
   try {
     localStorage.removeItem('access-token');
     deleteCookie('access-token');
-  } catch (error) {
+  } catch (_error) {
   }
 };

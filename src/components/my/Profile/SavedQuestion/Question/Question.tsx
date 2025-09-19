@@ -9,36 +9,40 @@ const bookmarkImg =
   "/svg/placeholder.svg"
 
 type Q = {
-  title: string;
-  author: string;
-  date: string;
-  bookmark: number;
-  comments: number;
+    title: string;
+    author: string;
+    date: string;
+    bookmark: number;
+    comments: number;
 };
 
-const Question = (): React.ReactElement => {
-  return (
-    <Wrap>
-      <Row>
-        <Body>
-          <Title>{q.title}</Title>
-          <Meta>
-            <span className="author">{q.author}</span>
-            <span className="date">{q.date}</span>
-            <span className="bm">
+type QuestionProps = {
+    q: Q;
+};
+
+const Question = ({ q }: QuestionProps): React.ReactElement => {
+    return (
+        <Wrap>
+            <Row>
+                <Body>
+                    <Title>{q.title}</Title>
+                    <Meta>
+                        <span className="author">{q.author}</span>
+                        <span className="date">{q.date}</span>
+                        <span className="bm">
               <img src={bookmarkImg} alt="bookmark" />
               <span className="cnt">{q.bookmark}</span>
             </span>
-          </Meta>
-        </Body>
+                    </Meta>
+                </Body>
 
-        <Badge aria-label="댓글 수">
-          <div className="num">{q.comments}</div>
-          <div className="label">댓글</div>
-        </Badge>
-      </Row>
-    </Wrap>
-  );
+                <Badge aria-label="댓글 수">
+                    <div className="num">{q.comments}</div>
+                    <div className="label">댓글</div>
+                </Badge>
+            </Row>
+        </Wrap>
+    );
 };
 
 export default Question;
