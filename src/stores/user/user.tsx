@@ -40,6 +40,7 @@ export function UserProvider({ children }: { children: ReactNode }) {
         setUser(data.me);
       }
     } catch (err) {
+        console.error(err);
     }
   };
 
@@ -48,12 +49,4 @@ export function UserProvider({ children }: { children: ReactNode }) {
       {children}
     </UserContext.Provider>
   );
-}
-
-export function useUser() {
-  const context = useContext(UserContext);
-  if (context === undefined) {
-    throw new Error('useUser must be used within a UserProvider');
-  }
-  return context;
 }
