@@ -36,8 +36,6 @@ const SaveGuidePage = () => {
     errorPolicy: 'ignore'
   });
 
-  console.log('📚 저장한 가이드 데이터:', { data, loading, error });
-
   const handleBack = () => {
     router.back();
   };

@@ -28,7 +28,6 @@ const MyQuestionPage = () => {
     errorPolicy: 'ignore'
   });
 
-  console.log('🗳️ 내가 만든 투표 데이터:', { data, loading, error });
 
   // 로딩 처리
   if (loading) {
@@ -42,7 +41,6 @@ const MyQuestionPage = () => {
 
   // 에러 처리
   if (error) {
-    console.error('❌ 투표 데이터 로딩 에러:', error);
     return (
       <MainPageLayout>
         <MyPageHeader title="내가 만든 투표" backLink="/my" headerType="makeVote" />

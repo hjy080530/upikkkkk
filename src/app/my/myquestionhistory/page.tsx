@@ -17,8 +17,6 @@ const MyQuestionHistoryPage = () => {
   
   const { questions, loading, error } = useQuestions(0, 20);
 
-  console.log('📝 내 질문 히스토리 데이터:', { questions, loading, error });
-
   const handleBack = () => {
     router.back();
   };

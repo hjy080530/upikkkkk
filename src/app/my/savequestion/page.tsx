@@ -32,8 +32,6 @@ const SavedQuestionPage = () => {
     errorPolicy: 'ignore'
   });
 
-  console.log('❓ 저장한 질문 데이터:', { data, loading, error });
-
   const handleBack = () => {
     router.back();
   };

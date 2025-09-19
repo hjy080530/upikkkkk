@@ -46,9 +46,7 @@ const GoogleOAuthCallbackPage = (): React.ReactElement => {
             
             if (accessTokenCookie) {
               const token = accessTokenCookie.split('=')[1];
-              // 로컬스토리지에 토큰 업데이트
               localStorage.setItem('access-token', token);
-              console.log('✅ 토큰 저장 완료');
               
               setTimeout(() => {
                 router.push('/');

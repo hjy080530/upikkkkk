@@ -28,8 +28,6 @@ const MyQuestionPage = () => {
     errorPolicy: 'ignore'
   });
 
-  console.log('🗳️ 내가 만든 투표 데이터:', { data, loading, error });
-
   // 로딩 처리
   if (loading) {
     return (
