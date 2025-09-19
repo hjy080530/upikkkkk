@@ -16,7 +16,8 @@ import Complete from "@/components/Modal/Complete";
 import { useSearchSimilarGuides } from "@/hooks/useGuides";
 import { useGuideStore } from "@/app/stores/useGuideStore";
 import { z } from "zod";
-import Filter from "badwords-ko";
+// eslint-disable-next-line @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any
+const Filter = require("badwords-ko") as any;
 
 const filter = new Filter();
 

@@ -76,7 +76,7 @@ const DoVote = ({ params }: { params: Promise<{ id: string }> }) => { // Promise
           </TextWrapper>
 
           <OptionsWrapper>
-            {vote?.options?.map((option: any, idx: number) => (
+            {vote?.options?.map((option: { id: string; content: string }, idx: number) => (
               <VoteOption
                 key={option.id}
                 label={labels[idx] ?? ''}

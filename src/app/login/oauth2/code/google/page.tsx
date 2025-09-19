@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import styled from "@emotion/styled";
 import color from "@/packages/design-system/src/color";
 import font from "@/packages/design-system/src/font";
 
-const GoogleOAuthCallbackPage = (): React.ReactElement => {
+const GoogleOAuthCallbackComponent = (): React.ReactElement => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -77,6 +77,14 @@ const GoogleOAuthCallbackPage = (): React.ReactElement => {
         <Description>잠시만 기다려주세요</Description>
       </LoadingSection>
     </Container>
+  );
+};
+
+const GoogleOAuthCallbackPage = (): React.ReactElement => {
+  return (
+    <Suspense fallback={<div>로딩 중...</div>}>
+      <GoogleOAuthCallbackComponent />
+    </Suspense>
   );
 };
 

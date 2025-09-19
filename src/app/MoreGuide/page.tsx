@@ -12,8 +12,9 @@ import { useMoreGuide } from "@/hooks/useMoreGuide";
 import { useQuery } from '@apollo/client/react';
 import { GET_VOTE_BY_ID } from '@/graphql/queries';
 import { Vote } from '@/types/api';
+import { Suspense } from 'react';
 
-const MoreGuide = () => {
+const MoreGuideContent = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const guideId = searchParams.get('id');
@@ -99,7 +100,7 @@ const MoreGuide = () => {
     );
   }
 
-  const chartData = vote?.options?.map((option: any, index: number) => ({
+  const chartData = vote?.options?.map((option: { content: string; responseCount?: number }, index: number) => ({
     label: option.content,
     value: option.responseCount || 0,
     color: ['#FF3B3B', '#FF6D38', '#FFBE3C'][index % 3]
@@ -176,6 +177,14 @@ const MoreGuide = () => {
     </GuidePageLayout>
   );
 }
+
+const MoreGuide = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <MoreGuideContent />
+    </Suspense>
+  );
+};
 
 export default MoreGuide;
 

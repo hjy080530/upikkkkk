@@ -9,7 +9,7 @@ import font from "@/packages/design-system/src/font";
 import { useRouter, useSearchParams } from "next/navigation";
 import RevoteComponent from "@/components/Guide/RevoteComponent";
 import DetailContent from "@/components/Guide/DetailContent";
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, Suspense } from "react";
 import RevoteSend from "@/components/Button/RevoteSend";
 import apolloClient from "@/lib/apollo-client";
 import { REVOTE_MUTATION } from "@/graphql/queries";
@@ -22,7 +22,7 @@ const revoteReasons = [
   "기타"
 ];
 
-const Revote = () => {
+const RevoteContent = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const guideId = searchParams.get("guideId") || 
@@ -148,6 +148,14 @@ const Revote = () => {
     </GuidePageLayout>
   );
 }
+
+const Revote = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <RevoteContent />
+    </Suspense>
+  );
+};
 
 export default Revote;
 
