@@ -4,7 +4,7 @@ import { createContext, useContext, useState, useEffect, ReactNode } from 'react
 import { useQuery } from '@apollo/client/react';
 import { GET_CURRENT_USER } from '../graphql/queries';
 import { User } from '../types/api';
-import { getAccessToken, setAccessToken, removeAccessToken } from '../lib/auth-utils';
+import { getAccessToken, removeAccessToken } from '../lib/auth-utils';
 
 interface CurrentUserData {
   iam: {
